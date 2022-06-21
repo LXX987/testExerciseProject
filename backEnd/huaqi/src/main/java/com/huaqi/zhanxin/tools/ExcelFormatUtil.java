@@ -75,17 +75,17 @@ public class ExcelFormatUtil {
         return list;
     }
 
-    public static List<List<Object>> readCalendarBorder() throws IOException {
+    public static List<List<Object>> readCalendarBorder(String fileName) throws IOException {
         List<List<Object>> list = new ArrayList<List<Object>>();             // 读取的数据放入该集合中
         String local_path = System.getProperty("user.dir");
-        String path = local_path+"/backEnd/huaqi/src/main/resources/file/calendar_border.xlsx";
+        String path = local_path+"/backEnd/huaqi/src/main/resources/file/"+fileName;
         File file=new File(path);
         System.out.println(path);
         FileInputStream fileInputStream=new FileInputStream(file);
         XSSFWorkbook calendarBorder = new XSSFWorkbook(fileInputStream);        // 文件所在位置
         XSSFSheet sheet = calendarBorder.getSheetAt(0);
 
-        for (int i = 1; i < sheet.getLastRowNum(); i++) {
+        for (int i = 1; i < sheet.getLastRowNum()+1; i++) {
             List<Object> list1 = new ArrayList<>();
             XSSFRow row = sheet.getRow(i);
             if (row.getCell(0) != null) {

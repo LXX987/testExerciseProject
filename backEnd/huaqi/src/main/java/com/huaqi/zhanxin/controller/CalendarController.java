@@ -23,10 +23,34 @@ public class CalendarController {
 
     @ApiOperation(value = "万年历基本边界测试")
     @GetMapping("testCalendar")
-    public Map<String, Object> getUserName() throws IOException {
+    public Map<String, Object> calendarBorder() throws IOException {
         Map<String, Object> map = new HashMap<>();
         // 读取excel表格
-        List<List<Object>> bankListByExcel = calendarDriver.simpleRead();
+        List<List<Object>> bankListByExcel = calendarDriver.simpleRead("calendar_border.xlsx");
+        map.put("data", bankListByExcel);
+        helper.setMsg("Success");
+        helper.setData(map);
+        return helper.toJsonMap();
+    }
+
+    @ApiOperation(value = "万年历等价类测试")
+    @GetMapping("testCalendar/equivalentclass")
+    public Map<String, Object> calendarEC() throws IOException {
+        Map<String, Object> map = new HashMap<>();
+        // 读取excel表格
+        List<List<Object>> bankListByExcel = calendarDriver.simpleRead("calendar_eqvltclass.xlsx");
+        map.put("data", bankListByExcel);
+        helper.setMsg("Success");
+        helper.setData(map);
+        return helper.toJsonMap();
+    }
+
+    @ApiOperation(value = "万年历决策表法测试")
+    @GetMapping("testCalendar/decisionTable")
+    public Map<String, Object> calendarDT() throws IOException {
+        Map<String, Object> map = new HashMap<>();
+        // 读取excel表格
+        List<List<Object>> bankListByExcel = calendarDriver.simpleRead("calendar_decisiontable.xlsx");
         map.put("data", bankListByExcel);
         helper.setMsg("Success");
         helper.setData(map);
