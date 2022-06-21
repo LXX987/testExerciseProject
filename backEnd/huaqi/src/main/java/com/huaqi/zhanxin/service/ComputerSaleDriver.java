@@ -10,10 +10,10 @@ import java.util.List;
 public class ComputerSaleDriver {
     // 上传csv
     public List<List<Object>> simpleRead() throws IOException {
-        List<List<Object>> bankListByExcel = ExcelFormatUtil.getBankListByExcel();
+        List<List<Object>> bankListByExcel = ExcelFormatUtil.computerSaleExcel();
         // 获取集合对象
         for (List<Object> list : bankListByExcel) {
-            //            TriangleExcelEntity triangleExcelEntity = new TriangleExcelEntity();    // 开始封装对象
+            //            TriangleExcelEntity triangleExcelEntity = new computerSaleExcel();    // 开始封装对象
 //            triangleExcelEntity.setId(Integer.parseInt(list.get(0).toString()));
 //            triangleExcelEntity.setTestUserName(list.get(1).toString());
             // 拿实验数据
