@@ -10,8 +10,8 @@ import java.util.List;
 public class CalendarDriver {
 
     // 上传Excel
-    public List<List<Object>> simpleRead() throws IOException {
-        List<List<Object>> calendarBorderByExcel = ExcelFormatUtil.readCalendarBorder();
+    public List<List<Object>> simpleRead(String fileName) throws IOException {
+        List<List<Object>> calendarBorderByExcel = ExcelFormatUtil.readCalendarBorder(fileName);
         // 获取集合对象
         for (List<Object> list : calendarBorderByExcel) {
             // 拿实验数据
