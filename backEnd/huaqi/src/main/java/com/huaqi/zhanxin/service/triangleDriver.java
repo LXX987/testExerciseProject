@@ -11,10 +11,10 @@ import java.util.List;
 public class triangleDriver {
 
     // 上传csv
-    public List<List<Object>> simpleRead() throws IOException {
-        List<List<Object>> bankListByExcel = ExcelFormatUtil.getBankListByExcel();
+    public List<List<String>> simpleRead(String fileName) throws IOException {
+        List<List<String>> bankListByExcel = ExcelFormatUtil.getBankListByExcel(fileName);
         // 获取集合对象
-        for (List<Object> list : bankListByExcel) {
+        for (List<String> list : bankListByExcel) {
             //            TriangleExcelEntity triangleExcelEntity = new TriangleExcelEntity();    // 开始封装对象
 //            triangleExcelEntity.setId(Integer.parseInt(list.get(0).toString()));
 //            triangleExcelEntity.setTestUserName(list.get(1).toString());
@@ -24,7 +24,12 @@ public class triangleDriver {
             // 开始测试
             String result = testTriangle(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));
             list.set(8, result);
-            list.set(6, "是");
+            if(list.get(8).toString().equals(list.get(9).toString())) {
+                list.set(6, "是");
+            } else {
+                list.set(6, "否");
+            }
+
         }
         return bankListByExcel;
     }
@@ -34,7 +39,7 @@ public class triangleDriver {
         if(a>=1&&a<=100&&b>=1&&b<=100&&c>=1&&c<=100) {
             System.out.println("输入在范围内");
         } else {
-            return "输入不合法";
+            return "输入不在范围内";
         }
 
         // 开始判断三角形形状

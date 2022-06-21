@@ -25,10 +25,10 @@ public class ExcelFormatUtil {
      * @return Workbook work = new XSSFWorkbook("D://GoolgeDownload//Summary.xlsx");
      * @throws Exception
      */
-    public static List<List<Object>> getBankListByExcel() throws IOException {
-        List<List<Object>> list = new ArrayList<List<Object>>();             // 读取的数据放入该集合中
+    public static List<List<String>> getBankListByExcel(String fileName) throws IOException {
+        List<List<String>> list = new ArrayList<List<String>>();             // 读取的数据放入该集合中
         String local_path = System.getProperty("user.dir");
-        String path = local_path+"/backEnd/huaqi/src/main/resources/file/TriangleBianjie.xlsx";
+        String path = local_path+"/backEnd/huaqi/src/main/resources/file/"+fileName;;
         System.out.println(path);
         File file=new File(path);
         FileInputStream fileInputStream=new FileInputStream(file);
@@ -36,7 +36,7 @@ public class ExcelFormatUtil {
         XSSFSheet sheet = book.getSheetAt(0);
 
         for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-            List<Object> list1 = new ArrayList<>();
+            List<String> list1 = new ArrayList<>();
             XSSFRow row = sheet.getRow(i);
             if (row != null) {
                 System.out.println(row.getCell(0));
@@ -68,7 +68,7 @@ public class ExcelFormatUtil {
                 list1.add(preTestCondition);
                 list1.add(realOutput);
                 list1.add(predictOutput);
-                list1.add(testTime);
+                list1.add(testTime.toString());
                 list.add(list1);
             }
         }

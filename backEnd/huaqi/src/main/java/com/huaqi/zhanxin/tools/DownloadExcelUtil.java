@@ -95,7 +95,7 @@ public class DownloadExcelUtil {
         int i = 0;
         int j = 0;
         for (List<String> list : testList) {//填充数据
-            row2 = sheet.createRow((int) i+2);
+            row2 = sheet.createRow((int) i+1);
             List<String> datalist = list;
             for( j = 0 ;j<datalist.size();j++){
                 cell2 = row2.createCell((short) j);
