@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Timestamp;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,6 +110,8 @@ public class ExcelFormatUtil {
                 String realOutput = "";
                 String predictOutput = row.getCell(9).getStringCellValue();    // 预计输出
                 Timestamp testTime = new Timestamp(System.currentTimeMillis());
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//定义格式，不显示毫秒
+                String strTime = df.format(testTime);
                 list1.add(id);            // 将读取的数据放入集合
                 list1.add(testUserName);
                 list1.add(description);
@@ -119,15 +122,15 @@ public class ExcelFormatUtil {
                 list1.add(preTestCondition);
                 list1.add(realOutput);
                 list1.add(predictOutput);
-                list1.add(testTime);
+                list1.add(strTime);
                 list.add(list1);
             }
         }
         return list;
     }
 
-    public static List<List<Object>> computerSaleExcel() throws IOException {
-        List<List<Object>> list = new ArrayList<List<Object>>();             // 读取的数据放入该集合中
+    public static List<List<String>> computerSaleExcel() throws IOException {
+        List<List<String>> list = new ArrayList<List<String>>();             // 读取的数据放入该集合中
         String local_path = System.getProperty("user.dir");
         String path = local_path+"/backEnd/huaqi/src/main/resources/file/computerSaleBorder.xlsx";
         File file=new File(path);
@@ -137,7 +140,7 @@ public class ExcelFormatUtil {
         XSSFSheet sheet = calendarBorder.getSheetAt(0);
 
         for (int i = 1; i < sheet.getLastRowNum(); i++) {
-            List<Object> list1 = new ArrayList<>();
+            List<String> list1 = new ArrayList<>();
             XSSFRow row = sheet.getRow(i);
             if (row.getCell(0) != null) {
                 System.out.println(row.getCell(0));
@@ -161,6 +164,8 @@ public class ExcelFormatUtil {
                 String realOutput = "";
                 String predictOutput = row.getCell(9).getStringCellValue();    // 预计输出
                 Timestamp testTime = new Timestamp(System.currentTimeMillis());
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//定义格式，不显示毫秒
+                String strTime = df.format(testTime);
                 list1.add(id);            // 将读取的数据放入集合
                 list1.add(testUserName);
                 list1.add(description);
@@ -171,15 +176,15 @@ public class ExcelFormatUtil {
                 list1.add(preTestCondition);
                 list1.add(realOutput);
                 list1.add(predictOutput);
-                list1.add(testTime);
+                list1.add(strTime);
                 list.add(list1);
             }
         }
         return list;
     }
 
-    public static List<List<Object>> telecomFeeExcel() throws IOException {
-        List<List<Object>> list = new ArrayList<List<Object>>();             // 读取的数据放入该集合中
+    public static List<List<String>> telecomFeeExcel() throws IOException {
+        List<List<String>> list = new ArrayList<List<String>>();             // 读取的数据放入该集合中
         String local_path = System.getProperty("user.dir");
         String path = local_path+"/backEnd/huaqi/src/main/resources/file/telecomTest.xlsx";
         File file=new File(path);
@@ -189,7 +194,7 @@ public class ExcelFormatUtil {
         XSSFSheet sheet = calendarBorder.getSheetAt(0);
 
         for (int i = 1; i < sheet.getLastRowNum(); i++) {
-            List<Object> list1 = new ArrayList<>();
+            List<String> list1 = new ArrayList<>();
             XSSFRow row = sheet.getRow(i);
             if (row.getCell(0) != null) {
                 System.out.println(row.getCell(0));
@@ -213,6 +218,8 @@ public class ExcelFormatUtil {
                 String realOutput = "";
                 String predictOutput = row.getCell(9).getStringCellValue();    // 预计输出
                 Timestamp testTime = new Timestamp(System.currentTimeMillis());
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//定义格式，不显示毫秒
+                String strTime = df.format(testTime);
                 list1.add(id);            // 将读取的数据放入集合
                 list1.add(testUserName);
                 list1.add(description);
@@ -223,7 +230,7 @@ public class ExcelFormatUtil {
                 list1.add(preTestCondition);
                 list1.add(realOutput);
                 list1.add(predictOutput);
-                list1.add(testTime);
+                list1.add(strTime);
                 list.add(list1);
             }
         }

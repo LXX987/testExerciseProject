@@ -8,10 +8,10 @@ import java.util.List;
 
 @Service
 public class TelecomDriver {
-    public List<List<Object>> simpleRead() throws IOException {
-        List<List<Object>> bankListByExcel = ExcelFormatUtil.telecomFeeExcel();
+    public List<List<String>> simpleRead() throws IOException {
+        List<List<String>> bankListByExcel = ExcelFormatUtil.telecomFeeExcel();
         // 获取集合对象
-        for (List<Object> list : bankListByExcel) {
+        for (List<String> list : bankListByExcel) {
             //            TriangleExcelEntity triangleExcelEntity = new computerSaleExcel();    // 开始封装对象
 //            triangleExcelEntity.setId(Integer.parseInt(list.get(0).toString()));
 //            triangleExcelEntity.setTestUserName(list.get(1).toString());

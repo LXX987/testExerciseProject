@@ -9,10 +9,10 @@ import java.util.List;
 @Service
 public class ComputerSaleDriver {
     // 上传csv
-    public List<List<Object>> simpleRead() throws IOException {
-        List<List<Object>> bankListByExcel = ExcelFormatUtil.computerSaleExcel();
+    public List<List<String>> simpleRead() throws IOException {
+        List<List<String>> bankListByExcel = ExcelFormatUtil.computerSaleExcel();
         // 获取集合对象
-        for (List<Object> list : bankListByExcel) {
+        for (List<String> list : bankListByExcel) {
             //            TriangleExcelEntity triangleExcelEntity = new computerSaleExcel();    // 开始封装对象
 //            triangleExcelEntity.setId(Integer.parseInt(list.get(0).toString()));
 //            triangleExcelEntity.setTestUserName(list.get(1).toString());
